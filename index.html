@@ -23,7 +23,7 @@
 <body id="top" class="bg-white text-gray-800 font-sans">
 
 <!-- Navbar -->
-<nav class="bg-white bg-opacity-80 border-b-4 border-green-600 shadow-md sticky top-0 z-50">
+<nav class="bg-white/70 backdrop-blur-lg border-b-4 border-green-600 shadow-md sticky top-0 z-50">
   <div class="container mx-auto px-6 py-4 relative flex items-center">
     <!-- Logo ซ้ายสุด -->
     <a href="#top" class="absolute left-8 top-1/2 transform -translate-y-1/2">
@@ -135,11 +135,46 @@
 
 <!-- Video Tutorual-->
 <section class="py-16 bg-white flex justify-center items-center">
-  <video controls class="w-full max-w-2xl rounded-lg shadow-lg mx-auto">
+  <video id="mainVideo" controls class="w-full max-w-2xl rounded-lg shadow-lg mx-auto cursor-pointer">
     <source src="SaferDocVideo/Project Safer.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </section>
+
+<script>
+  // ...existing code...
+
+  // Video enlarge modal logic
+  const mainVideo = document.getElementById('mainVideo');
+  const videoModal = document.getElementById('videoModal');
+  const closeModal = document.getElementById('closeModal');
+
+  mainVideo.addEventListener('click', () => {
+    videoModal.classList.remove('hidden');
+  });
+
+  closeModal.addEventListener('click', () => {
+    videoModal.classList.add('hidden');
+  });
+
+  // Optional: close modal when clicking outside video
+  videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+      videoModal.classList.add('hidden');
+    }
+  });
+</script>
+
+<!-- Modal for enlarged video -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+  <div class="relative">
+    <button id="closeModal" class="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
+    <video controls autoplay class="w-screen max-w-4xl rounded-lg shadow-2xl">
+      <source src="SaferDocVideo/Project Safer.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
 
 <!-- Key Features Section -->
 <section class="py-16 bg-white text-center">
