@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Safer - Smart Roadside Response</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <style>
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-24px); }
+    }
+    .animate-floatY {
+      animation: floatY 2s ease-in-out infinite;
+    }
+      .animate-floatY-slow {
+    animation: floatY 4s ease-in-out infinite;
+  }
+  </style>
+</head>
+<body id="top" class="bg-white text-gray-800 font-sans">
+
+<!-- Navbar -->
+<nav class="bg-white bg-opacity-80 border-b-4 border-green-600 shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-4 relative flex items-center">
+    <!-- Logo ซ้ายสุด -->
+    <a href="#top" class="absolute left-8 top-1/2 transform -translate-y-1/2">
+      <img src="SaferDocPic/SaferLogo.jpg" alt="SafeDrive Logo" class="h-16 sm:h-20" />
+    </a>
+    <!-- Centered Navbar Links -->
+    <div class="w-full flex justify-center">
+      <div class="space-x-10 text-green-700 text-xl font-bold flex items-center">
+        <a href="#top" class="hover:text-green-900">Home</a>
+        <a href="#about" class="hover:text-green-900">About</a>
+        <a href="#contact" class="hover:text-green-900">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="py-24 px-6 bg-gray-50">
+  <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+    
+<!-- Left Text -->
+<div class="md:w-1/3 text-left pl-6 md:pl-40">
+  <h1 class="text-4xl sm:text-4xl font-bold text-gray-900 mb-4">
+    Smart Emergency Response for Drivers
+  </h1>
+  <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+    Safer automatically detects car accidents, alerts emergency responders, 
+    and keeps your loved ones informed — all in real time.
+  </p>
+  <a href="https://roadside-guardian-ai-44.lovable.app/" target="_blank"
+    class="inline-block px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium shadow-md transition transform hover:scale-110 duration-200">
+    Try for free!
+  </a>
+</div>
+
+        <!-- Right Slideshow -->
+        <div class="md:w-2/3 flex justify-center pl-6 md:pl-40">
+          <div 
+            class="relative w-full max-w-md overflow-hidden rounded-lg shadow-2xl flex flex-col items-center border-4 border-black bg-white animate-floatY-slow"
+          >
+            <!-- Slide Images -->
+            <div id="slide-container" class="flex transition-transform duration-700 ease-in-out">
+              <img src="SaferDocPic/Map.jpg" class="w-full h-auto object-cover flex-shrink-0 rounded-lg shadow-2xl" alt="">
+              <img src="SaferDocPic/Alerts.jpg" class="w-full h-auto object-cover flex-shrink-0 rounded-lg shadow-2xl" alt="">
+              <img src="SaferDocPic/Safety.jpg" class="w-full h-auto object-cover flex-shrink-0 rounded-lg shadow-2xl" alt="">
+              <img src="SaferDocPic/Community.jpg" class="w-full h-auto object-cover flex-shrink-0 rounded-lg shadow-2xl" alt="">
+            </div>
+            <!-- Dots below (inside the same black border box) -->
+            <div class="flex justify-center mt-4 space-x-2 mb-4">
+              <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-blue-500" onclick="showSlide(0)"></button>
+              <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-blue-500" onclick="showSlide(1)"></button>
+              <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-blue-500" onclick="showSlide(2)"></button>
+              <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-blue-500" onclick="showSlide(3)"></button>
+            </div>
+          </div>
+        </div>
+        </section>
+
+<script>
+  AOS.init();
+
+  let currentSlide = 0;
+  const totalSlides = 4;
+  const slideContainer = document.getElementById("slide-container");
+  const dots = document.querySelectorAll(".dot");
+
+  function showSlide(index) {
+    currentSlide = index;
+    slideContainer.style.transform = `translateX(-${index * 100}%)`; 
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("bg-blue-600", i === currentSlide);
+      dot.classList.toggle("bg-gray-400", i !== currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  // Auto change every 5 seconds
+  setInterval(nextSlide, 5000);
+
+  // Initial state
+  showSlide(0);
+</script>
+
+<!-- About Section1 -->
+<section id="about" class="py-32 px-6 bg-white text-center">
+  <h2 class="text-6xl font-semibold text-gray-800 mb-4">Why Choose Safer?</h2>
+</section>
+
+
+<!-- About Section2 -->
+<section id="about" class="py-20 px-6 bg-gray-50 text-center">
+  <p 
+    class="text-lg text-gray-600 max-w-xl mx-auto"
+    data-aos="fade-up"
+    data-aos-delay="500"
+    data-aos-once="false"
+  >
+    With built-in crash detection, GPS tracking, and instant emergency alerts, Safer is designed to save lives by reducing response times and keeping you connected when it matters most.
+  </p>
+</section>
+
+<!-- Video Tutorual-->
+<section class="py-16 bg-white flex justify-center items-center">
+  <video controls class="w-full max-w-2xl rounded-lg shadow-lg mx-auto">
+    <source src="SaferDocVideo/Project Safer.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<!-- Key Features Section -->
+<section class="py-16 bg-white text-center">
+  <h2 class="text-3xl font-bold mb-8">Safer Key Features</h2>
+  <hr class="border-gray-300 w-1/2 mx-auto mb-12">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+
+    <!-- Feature 1 -->
+    <div>
+      <img src="SaferDocPic/Live Map.png" alt="Live Map" class="mx-auto mb-4 w-20 h-20">
+      <h3 class="font-semibold">Live Crime & Accident Map</h3>
+    </div>
+
+    <!-- Feature 2 -->
+    <div>
+      <img src="SaferDocPic/Missing Person.png" alt="Missing Person" class="mx-auto mb-4 w-20 h-20">
+      <h3 class="font-semibold">Missing Person Finder</h3>
+    </div>
+
+    <!-- Feature 3 -->
+    <div>
+      <img src="SaferDocPic/Safe Path.png" alt="Safe Path" class="mx-auto mb-4 w-20 h-20">
+      <h3 class="font-semibold">Safe Path Navigation</h3>
+    </div>
+
+    <!-- Feature 4 -->
+    <div>
+      <img src="SaferDocPic/Community Watch.png" alt="Community Watch" class="mx-auto mb-4 w-20 h-20">
+      <h3 class="font-semibold">Community Safety Collaboration</h3>
+    </div>
+
+    <!-- Feature 5 -->
+    <div>
+      <img src="SaferDocPic/Blockchain.png" alt="Blockchain" class="mx-auto mb-4 w-20 h-20">
+      <h3 class="font-semibold">Blockchain Transparency</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- Why Safer Stands Out?-->
+<section id="about" class="py-32 px-6 bg-gray-50 text-center">
+  <h2 class="text-6xl font-semibold text-gray-800 mb-4">Why Safer Stands Out?</h2>
+</section>
+
+<!-- Hero Section with Image and Launch App -->
+<section class="text-center py-24 px-6 bg-white">
+  <p 
+    class="text-lg text-gray-600 max-w-xl mx-auto"
+    data-aos="fade-up"
+    data-aos-delay="500"
+    data-aos-once="false"
+  >
+    From AI-assisted missing person searches to blockchain-secured reporting, Safer goes beyond crash detection. It empowers communities to respond faster, avoid danger zones, and support vulnerable groups, creating a safer environment for all.
+  </p>
+</section>
+
+<!-- SDG -->
+<section class="py-32 bg-gray-50 text-center">
+  <h2 class="text-3xl font-bold mb-8">Aligned with SDGs</h2>
+  <hr class="border-gray-300 w-1/2 mx-auto mb-12">
+  <div class="container mx-auto flex flex-row justify-center items-center gap-8">
+    <img src="SaferDocPic/SDG3.jpg" alt="SDG 3" class="w-32 h-32 object-contain rounded-lg shadow-md" />
+    <img src="SaferDocPic/SDG9.jpg" alt="SDG 9" class="w-32 h-32 object-contain rounded-lg shadow-md" />
+    <img src="SaferDocPic/SDG11.jpg" alt="SDG 11" class="w-32 h-32 object-contain rounded-lg shadow-md" />
+    <img src="SaferDocPic/SDG16.jpg" alt="SDG 16" class="w-32 h-32 object-contain rounded-lg shadow-md" />
+  </div>
+</section>
+
+<!-- Detect Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
+    <!-- Left text -->
+    <div class="md:w-1/2 text-left pl-6 md:pl-40">
+      <h3 class="text-4xl sm:text-4xl font-bold mb-4">Detect</h3>
+      <p class="text-lg text-gray-600 mb-8">
+        AI detects accidents or incidents from real-time data.
+      </p>
+      <hr class="border-black border-2 w-1/2 ml-0 mb-12">
+    </div>
+    <!-- Right image -->
+    <div class="md:w-1/2 pr-6 md:pr-40">
+      <img src="SaferDocPic/Detect.jpg" alt="Detect" class="block object-cover rounded-lg shadow-lg w-full h-auto border-4 border-black animate-floatY-slow" />
+    </div>
+  </div>
+</section>
+
+<!-- Emergency Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto flex flex-col md:flex-row-reverse items-center gap-8">
+    <!-- Right text -->
+    <div class="md:w-1/2 text-right pr-6 md:pr-40">
+      <h3 class="text-4xl sm:text-4xl font-bold mb-4">Emergency</h3>
+      <p class="text-lg text-gray-600 mb-8">
+        Sends alerts to users and emergency services.
+      </p>
+      <hr class="border-black border-2 w-1/2 ml-auto mb-12">
+    </div>
+    <!-- Left image -->
+    <div class="md:w-1/2 p-4 pl-6 md:pl-40">
+      <img src="SaferDocPic/Emergency.jpg" alt="Emergency" class="block object-cover rounded-lg shadow-lg w-full h-auto border-4 border-black animate-floatY-slow">
+    </div>
+  </div>
+</section>
+
+<!-- Respond Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
+    <!-- Left text -->
+    <div class="md:w-1/2 text-left pl-6 md:pl-40">
+      <h3 class="text-4xl sm:text-4xl font-bold mb-4">Respond</h3>
+      <p class="text-lg text-gray-600 mb-8">
+        Manages the situation using safe route navigation and community assistance.
+      </p>
+      <hr class="border-black border-2 w-1/2 ml-0 mb-12">
+    </div>
+    <!-- Right image -->
+    <div class="md:w-1/2 p-4 pr-6 md:pr-40">
+      <img src="SaferDocPic/Respond.jpg" alt="Respond" class="block object-cover rounded-lg shadow-lg w-full h-auto border-4 border-black animate-floatY-slow">
+    </div>
+  </div>
+</section>
+
+<!-- Review Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto flex flex-col md:flex-row-reverse items-center gap-8">
+    <!-- Right text -->
+    <div class="md:w-1/2 text-right pr-6 md:pr-40">
+      <h3 class="text-4xl smLtext-4xl font-bold mb-4">Review</h3>
+      <p class="text-lg text-gray-600 mb-8">
+        Records the incident data on blockchain for transparency.
+      </p>
+      <hr class="border-black border-2 w-1/2 ml-auto mb-8">
+    </div>
+    <!-- Left image -->
+    <div class="md:w-1/2 p-4 pl-6 md:pl-40">
+      <img src="SaferDocPic/Review.jpg" alt="Review" class="block object-cover rounded-lg shadow-lg w-full h-auto border-4 border-black animate-floatY-slow">
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <!-- Buttons -->
+  <div class="flex flex-col sm:flex-row justify-center items-center gap-6 my-12">
+    <a href="https://roadside-guardian-ai-44.lovable.app/" target="_blank"
+       class="px-10 py-5 text-lg bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold shadow-md transition transform hover:scale-110 duration-200">
+      Launch App
+    </a>
+    <a href="SaferDocPic/SaferLogo.jpg" download
+       class="px-10 py-5 text-lg bg-green-600 hover:bg-green-700 text-white rounded-md font-semibold shadow-md transition transform hover:scale-110 duration-200">
+      Download Logo
+    </a>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 px-6 bg-white text-center">
+  <div class="grid grid-cols-3 gap-x-12 gap-y-12 justify-items-center mb-12">
+    <!-- Row 1 -->
+    <div>
+      <img src="SaferDocPic/karma.jpg" alt="Karma" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
+      <p class="mt-4 text-gray-800 font-bold text-2xl">Karma Yoezer</p>
+    </div>
+    <div>
+      <img src="SaferDocPic/jai.jpg" alt="Jai" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
+      <p class="mt-4 text-gray-800 font-bold text-2xl">Tanatuch Terasunthornwat</p>
+    </div>
+    <div>
+      <img src="SaferDocPic/teya.jpg" alt="Teya" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
+      <p class="mt-4 text-gray-800 font-bold text-2xl">Althea Mariz Lindugan</p>
+    </div>
+    <!-- Row 2 -->
+    <div>
+      <img src="SaferDocPic/toon.jpg" alt="Toon" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
+      <p class="mt-4 text-gray-800 font-bold text-2xl">Thanapond Buadeang</p>
+    </div>
+    <div>
+      <img src="SaferDocPic/nat.jpg" alt="Nat" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
+      <p class="mt-4 text-gray-800 font-bold text-2xl">Nattapong Ngamwiliaipan</p>
+    </div>
+    <div>
+      <img src="SaferDocPic/pugun.png" alt="Pugun" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
+      <p class="mt-4 text-gray-800 font-bold text-2xl">Satayu Saengchan</p>
+    </div>
+  </div>
+  
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-once="false"
+    >Contact Us</h2>
+
+  <p class="text-gray-600"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-once="false"
+      >📧 Email: support@safedrive.app</p>
+
+  <p class="text-gray-600 mt-2"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-once="false"
+      >📞 Phone: +1 (555) 123-4567</p>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-200 text-gray-600 text-center py-6 text-sm">
+  &copy; 2025 Safer. All rights reserved.
+</footer>
+
+</body>
+</html>
