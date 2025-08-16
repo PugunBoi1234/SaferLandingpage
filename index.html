@@ -150,6 +150,31 @@
   showSlide(0);
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.person-card').forEach(card => {
+    const img = card.querySelector('.person-img');
+    const content = card.querySelector('.person-content');
+
+    img.addEventListener('click', () => {
+      if (content.classList.contains('hidden')) {
+        // เปิดเนื้อหา
+        content.classList.remove('hidden');
+        setTimeout(() => {
+          content.classList.remove('opacity-0', 'translate-y-4');
+        }, 50);
+      } else {
+        // ปิดเนื้อหา
+        content.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => {
+          content.classList.add('hidden');
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+
 <!-- About Section1 -->
 <section id="about" class="py-32 px-6 bg-white text-center">
   <h2 class="text-6xl font-semibold text-gray-800 mb-4">Why Choose Safer?</h2>
@@ -165,6 +190,23 @@
     data-aos-once="false"
   >
     With built-in crash detection, GPS tracking, and instant emergency alerts, Safer is designed to save lives by reducing response times and keeping you connected when it matters most.
+  </p>
+</section>
+
+<!-- Why Safer Stands Out?-->
+<section id="about" class="py-32 px-6 bg-gray-50 text-center">
+  <h2 class="text-6xl font-semibold text-gray-800 mb-4">Why Safer Stands Out?</h2>
+</section>
+
+<!-- Hero Section with Image and Launch App -->
+<section class="text-center py-24 px-6 bg-white">
+  <p 
+    class="text-lg text-gray-600 max-w-xl mx-auto"
+    data-aos="fade-up"
+    data-aos-delay="500"
+    data-aos-once="false"
+  >
+    From AI-assisted missing person searches to blockchain-secured reporting, Safer goes beyond crash detection. It empowers communities to respond faster, avoid danger zones, and support vulnerable groups, creating a safer environment for all.
   </p>
 </section>
 
@@ -249,23 +291,6 @@
     </div>
 
   </div>
-</section>
-
-<!-- Why Safer Stands Out?-->
-<section id="about" class="py-32 px-6 bg-gray-50 text-center">
-  <h2 class="text-6xl font-semibold text-gray-800 mb-4">Why Safer Stands Out?</h2>
-</section>
-
-<!-- Hero Section with Image and Launch App -->
-<section class="text-center py-24 px-6 bg-white">
-  <p 
-    class="text-lg text-gray-600 max-w-xl mx-auto"
-    data-aos="fade-up"
-    data-aos-delay="500"
-    data-aos-once="false"
-  >
-    From AI-assisted missing person searches to blockchain-secured reporting, Safer goes beyond crash detection. It empowers communities to respond faster, avoid danger zones, and support vulnerable groups, creating a safer environment for all.
-  </p>
 </section>
 
 <!-- SDG -->
@@ -369,57 +394,183 @@
 <!-- Contact Section -->
 <section id="contact" class="py-20 px-6 bg-white text-center">
   <div class="grid grid-cols-3 gap-x-12 gap-y-12 justify-items-center mb-12">
-    <!-- Row 1 -->
-    <div>
-      <img src="SaferDocPic/karma.jpg" alt="Karma" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
-      <p class="mt-4 text-gray-800 font-bold text-2xl">Karma Yoezer</p>
+
+    <!-- Karma -->
+    <div class="person-card w-full">
+      <img 
+        src="SaferDocPic/karma.jpg" 
+        alt="Karma" 
+        class="person-img w-40 h-40 object-cover rounded-full mx-auto shadow-xl border-8 border-green-700 cursor-pointer transition-transform duration-300 hover:scale-105" 
+      />
+      <!-- Name -->
+      <div class="person-content hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out">
+        <p class="mt-4 text-white font-bold text-2xl inline-block bg-green-700 px-4 py-2 rounded-lg">
+          Karma Yoezer
+        </p>
+        <!-- Email -->
+        <p class="mt-4 text-gray-800 text-xl">
+          s6707012660247@email.kmutnb.ac.th</p>
+        <!-- Roles -->
+        <p class="mt-4 text-gray-800 font-bold text-2xl relative inline-block">
+          Roles
+          <span class="absolute left-0 -bottom-1 w-full h-1 bg-gray-800"></span>
+        </p>
+        <ul class="mt-2 text-gray-800 text-xl text-left list-disc list-inside">
+          <li>Contributed the main idea</li>
+          <li>Overall, organized the work</li>
+          <li>Assisted in app application</li>
+          <li>Guided the members</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <img src="SaferDocPic/jai.jpg" alt="Jai" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
-      <p class="mt-4 text-gray-800 font-bold text-2xl">Tanatuch Terasunthornwat</p>
+
+    <!-- Tanatuch -->
+    <div class="person-card w-full">
+      <img 
+        src="SaferDocPic/jai.jpg" 
+        alt="Jai" 
+        class="person-img w-40 h-40 object-cover rounded-full mx-auto shadow-xl border-8 border-green-700 cursor-pointer transition-transform duration-300 hover:scale-105" 
+      />
+      
+      <div class="person-content hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out">
+        <!-- Name -->
+        <p class="mt-4 text-white font-bold text-2xl inline-block bg-green-700 px-4 py-2 rounded-lg">
+          Tanatuch Terasunthornwat
+        </p>
+        <!-- Email -->
+        <p class="mt-4 text-gray-800 text-xl">
+          s6707012660107@email.kmutnb.ac.th</p>
+        <!-- Roles -->
+        <p class="mt-4 text-gray-800 font-bold text-2xl relative inline-block">
+          Roles
+          <span class="absolute left-0 -bottom-1 w-full h-1 bg-gray-800"></span>
+        </p>
+        <ul class="mt-2 text-gray-800 text-xl text-left list-disc list-inside">
+          <li>Web Design</li>
+          <li>Web page developer</li>
+          <li>Video editor</li>
+          <li>Slide presentation</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <img src="SaferDocPic/teya.jpg" alt="Teya" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
-      <p class="mt-4 text-gray-800 font-bold text-2xl">Althea Mariz Lindugan</p>
+
+    <!-- Althea Mariz Lindugan -->
+    <div class="person-card w-full">
+      <img 
+        src="SaferDocPic/teya.jpg" 
+        alt="Althea" 
+        class="person-img w-40 h-40 object-cover rounded-full mx-auto shadow-xl border-8 border-green-700 cursor-pointer transition-transform duration-300 hover:scale-105" 
+      />
+
+      <!-- Hidden Content -->
+      <div class="person-content hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out">
+        <!-- Name -->
+        <p class="mt-4 text-white font-bold text-2xl inline-block bg-green-700 px-4 py-2 rounded-lg">
+          Althea Mariz Lindugan
+        </p>
+        <!-- Email -->
+        <p class="mt-4 text-gray-800 text-xl">
+          s6707012660158@email.kmutnb.ac.th
+        </p>
+        <!-- Roles -->
+        <p class="mt-4 text-gray-800 font-bold text-2xl relative inline-block">
+          Roles
+          <span class="absolute left-0 -bottom-1 w-full h-1 bg-gray-800"></span>
+        </p>
+        <ul class="mt-2 text-gray-800 text-xl text-left list-disc list-inside">
+          <li>Prototype Developer</li>
+          <li>Voice Over Artist</li>
+          <li>Brainstorming Contributor</li>
+          <li>Presenter</li>
+        </ul>
+      </div>
     </div>
+
+
     <!-- Row 2 -->
-    <div>
-      <img src="SaferDocPic/toon.jpg" alt="Toon" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
-      <p class="mt-4 text-gray-800 font-bold text-2xl">Thanapond Buadeang</p>
+
+    <!-- Thanapond -->
+    <div class="person-card w-full">
+      <img 
+        src="SaferDocPic/toon.jpg" 
+        alt="Thanapond" 
+        class="person-img w-40 h-40 object-cover rounded-full mx-auto shadow-xl border-8 border-green-700 cursor-pointer transition-transform duration-300 hover:scale-105" 
+      />
+      <div class="person-content hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out">
+        <p class="mt-4 text-white font-bold text-2xl inline-block bg-green-700 px-4 py-2 rounded-lg">
+          Thanapond Buadeang
+        </p>
+        <p class="mt-4 text-gray-800 text-xl">
+          s6707012660042@email.kmutnb.ac.th
+        </p>
+        <p class="mt-4 text-gray-800 font-bold text-2xl relative inline-block">
+          Roles
+          <span class="absolute left-0 -bottom-1 w-full h-1 bg-gray-800"></span>
+        </p>
+        <ul class="mt-2 text-gray-800 text-xl text-left list-disc list-inside">
+          <li>Presentation design</li>
+          <li>Script writing for presentation</li>
+          <li>Data gathering</li>
+          <li>Brainstorming</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <img src="SaferDocPic/nat.jpg" alt="Nat" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
-      <p class="mt-4 text-gray-800 font-bold text-2xl">Nattapong Ngamwiliaipan</p>
+
+    <!-- Nattapong -->
+    <div class="person-card w-full">
+      <img 
+        src="SaferDocPic/nat.jpg" 
+        alt="Nattapong" 
+        class="person-img w-40 h-40 object-cover rounded-full mx-auto shadow-xl border-8 border-green-700 cursor-pointer transition-transform duration-300 hover:scale-105" 
+      />
+      <div class="person-content hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out">
+        <p class="mt-4 text-white font-bold text-2xl inline-block bg-green-700 px-4 py-2 rounded-lg">
+          Nattapong Ngamwiliaipan
+        </p>
+        <p class="mt-4 text-gray-800 text-xl">
+          s6707012660140@email.kmutnb.ac.th
+        </p>
+        <p class="mt-4 text-gray-800 font-bold text-2xl relative inline-block">
+          Roles
+          <span class="absolute left-0 -bottom-1 w-full h-1 bg-gray-800"></span>
+        </p>
+        <ul class="mt-2 text-gray-800 text-xl text-left list-disc list-inside">
+          <li>Frontend webpage</li>
+          <li>Image editor</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <img src="SaferDocPic/pugun.png" alt="Pugun" class="w-40 h-40 object-cover rounded-full mx-auto shadow-xl" />
-      <p class="mt-4 text-gray-800 font-bold text-2xl">Satayu Saengchan</p>
+
+    <!-- Satayu -->
+    <div class="person-card w-full">
+      <img 
+        src="SaferDocPic/pugun.png" 
+        alt="Satayu" 
+        class="person-img w-40 h-40 object-cover rounded-full mx-auto shadow-xl border-8 border-green-700 cursor-pointer transition-transform duration-300 hover:scale-105" 
+      />
+      <div class="person-content hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out">
+        <p class="mt-4 text-white font-bold text-2xl inline-block bg-green-700 px-4 py-2 rounded-lg">
+          Satayu Saengchan
+        </p>
+        <p class="mt-4 text-gray-800 text-xl">
+          s6707012660026@email.kmutnb.ac.th
+        </p>
+        <p class="mt-4 text-gray-800 font-bold text-2xl relative inline-block">
+          Roles
+          <span class="absolute left-0 -bottom-1 w-full h-1 bg-gray-800"></span>
+        </p>
+        <ul class="mt-2 text-gray-800 text-xl text-left list-disc list-inside">
+          <li>UX UI Design</li>
+          <li>Frontend Webpage</li>
+          <li>Version Control (Git)</li>
+        </ul>
+      </div>
     </div>
-  </div>
-  
-  <h2 class="text-2xl font-semibold text-gray-800 mb-4"
-      data-aos="fade-up"
-      data-aos-delay="500"
-      data-aos-once="false"
-    >Contact Us</h2>
+  </section>
 
-  <p class="text-gray-600"
-      data-aos="fade-up"
-      data-aos-delay="500"
-      data-aos-once="false"
-      >📧 Email: support@safedrive.app</p>
-
-  <p class="text-gray-600 mt-2"
-      data-aos="fade-up"
-      data-aos-delay="500"
-      data-aos-once="false"
-      >📞 Phone: +1 (555) 123-4567</p>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-200 text-gray-600 text-center py-6 text-sm">
-  &copy; 2025 Safer. All rights reserved.
-</footer>
-
+  <!-- Footer -->
+  <footer class="bg-gray-200 text-gray-600 text-center py-6 text-sm">
+    &copy; 2025 Safer. All rights reserved.
+  </footer>
 </body>
 </html>
